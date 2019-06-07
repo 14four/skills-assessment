@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <head>
+        <title>Contact List</title>
+    </head>
+    <body>
+        <table id="contacts-table">
+            <thead>
+                <tr>
+                    <th>Contacts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onmouseenter="showFull(this)" onmouseleave="hideFull(this)">
+                    <td><span class="dot green-dot"></span>&nbsp;Lyndell</td>
+                    <td>
+                        <span class="email"><a class="email" href="mailto:lgwyther0@unesco.org">lgwyther0@unesco.org</a></span>
+                        <span class="hide phone">376-895-2322</span>
+                        <span class="hide address">4158 Novick Point</span>
+                    </td>
+                </tr>
+                <tr onmouseenter="showFull(this)" onmouseleave="hideFull(this)">
+                    <td><span class="dot green-dot"></span>&nbsp;Lyndell</td>
+                    <td>
+                        <span class="email"><a class="email" href="mailto:lgwyther0@unesco.org">lgwyther0@unesco.org</a></span>
+                        <span class="hide phone">376-895-2322</span>
+                        <span class="hide address">4158 Novick Point</span>
+                    </td>
+                </tr>
+                <tr onmouseenter="showFull(this)" onmouseleave="hideFull(this)">
+                    <td><span class="dot green-dot"></span>&nbsp;Lyndell</td>
+                    <td>
+                        <span class="email"><a class="email" href="mailto:lgwyther0@unesco.org">lgwyther0@unesco.org</a></span>
+                        <span class="hide phone">376-895-2322</span>
+                        <span class="hide address">4158 Novick Point</span>
+                    </td>
+                </tr>
+                <tr onmouseenter="showFull(this)" onmouseleave="hideFull(this)">
+                    <td><span class="dot green-dot"></span>&nbsp;Lyndell</td>
+                    <td>
+                        <span class="email"><a class="email" href="mailto:lgwyther0@unesco.org">lgwyther0@unesco.org</a></span>
+                        <span class="hide phone">376-895-2322</span>
+                        <span class="hide address">4158 Novick Point</span>
+                    </td>
+                </tr>
+                <tr onmouseenter="showFull(this)" onmouseleave="hideFull(this)">
+                    <td><span class="dot green-dot"></span>&nbsp;Lyndell</td>
+                    <td>
+                        <span class="email"><a class="email" href="mailto:lgwyther0@unesco.org">lgwyther0@unesco.org</a></span>
+                        <span class="hide phone">376-895-2322</span>
+                        <span class="hide address">4158 Novick Point</span>
+                    </td>
+                </tr>
+                <tr onmouseenter="showFull(this)" onmouseleave="hideFull(this)">
+                    <td><span class="dot green-dot"></span>&nbsp;Lyndell</td>
+                    <td>
+                        <span class="email"><a class="email" href="mailto:lgwyther0@unesco.org">lgwyther0@unesco.org</a></span>
+                        <span class="hide phone">376-895-2322</span>
+                        <span class="hide address">4158 Novick Point</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="pull-right">
+                            <select id="mySelect" onchange="selectChange(this.value)">
+                                <option value="email">Email address</option>
+                                <option value="phone">Phone number</option>
+                            </select>
+                        </td>
+                    </tr>
+            </tbody>
+            <tfoot style="float:right;">
+            </tfoot>
+        </table>
+    </body>
+</html>
+<script>
+function showFull(e) {
+    let hidden = e.querySelectorAll(".hide");
+    e.classList.add("focus");
+    hidden.forEach(e => {
+        e.classList.remove("hide");
+    });
+
+    let unfocused = document.querySelectorAll("tr:not(.focus)");
+    unfocused.forEach(e => {
+        e.classList.add("blur-stuff");
+    })
+}
+
+function hideFull(e) {
+    let prevFocused = document.querySelectorAll(".focus");
+    prevFocused.forEach(e => {
+        e.classList.remove("focus");
+    })
+    let select = document.querySelector("#mySelect");
+    let query = `:not(.${select.value}):not(td):not(tr):not(.dot)`;
+    let shown = e.querySelectorAll(query);
+    shown.forEach(e => {
+        e.classList.add("hide");
+    });
+
+    let unfocused = document.querySelectorAll("tr:not(.focus)");
+    unfocused.forEach(e => {
+        e.classList.remove("blur-stuff");
+    })
+}
+
+function selectChange(e) {
+    let elementsToShow = document.querySelectorAll("."+e);
+    if (e === "email") {
+        let elementsToHide = document.querySelectorAll(".phone");
+        elementsToHide.forEach(e => {
+            e.classList.toggle("hide");
+        })
+    } else {
+        let elementsToHide = document.querySelectorAll(".email");
+        elementsToHide.forEach(e => {
+            e.classList.toggle("hide");
+        })
+    }
+
+    elementsToShow.forEach(e => {
+            e.classList.remove("hide");
+    })
+}
+</script>

@@ -1,0 +1,59 @@
+table {
+  border: 1px ;
+  border-radius: 10px;
+  font-family: arial, sans-serif;
+  width: 50%;
+  background-color: #353535;
+}
+td, th {
+  text-align: left;
+  color: #dddddd;
+}
+
+tr:nth-child(even) {
+  background-color: #212121;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.green-dot {
+  background-color: rgb(52, 247, 3);
+}
+
+.yellow-dot {
+  background-color: rgb(247, 243, 3);
+}
+
+.red-dot {
+  background-color: rgb(247, 19, 3);
+}
+
+.hide {
+  display: none;
+}
+
+.pull-right {
+  float: right;
+}
+
+tr:hover {
+  background-color: rgb(141, 141, 141);
+  cursor: pointer;
+}
+
+.blur-stuff {
+  filter: blur(1px);
+}
+
+.unblur {
+  filter: none;
+}
+
+a {
+  color: rgb(123, 243, 233);
+}
