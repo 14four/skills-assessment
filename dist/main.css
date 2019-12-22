@@ -1,0 +1,323 @@
+/* `XHTML, HTML4, HTML5 Reset
+----------------------------------------------------------------------------------------------------*/
+* {
+  box-sizing: border-box; }
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%; }
+
+html,
+body {
+  height: 100%; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  /*
+  Override the default (display: inline) for
+  browsers that do not recognize HTML5 tags.
+
+  IE8 (and lower) requires a shiv:
+  http://ejohn.org/blog/html5-shiv
+*/
+  display: block; }
+
+b,
+strong {
+  /*
+  Makes browsers agree.
+  IE + Opera = font-weight: bold.
+  Gecko + WebKit = font-weight: bolder.
+*/
+  font-weight: bold; }
+
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+  /*
+  For IE.
+  http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+*/
+  -ms-interpolation-mode: bicubic; }
+
+ol,
+ul {
+  list-style: none; }
+
+li {
+  /*
+  For IE6 + IE7:
+
+  "display: list-item" keeps bullets from
+  disappearing if hasLayout is triggered.
+*/
+  display: list-item; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left; }
+
+q {
+  quotes: none; }
+
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+sub,
+sup,
+small {
+  font-size: 75%; }
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+svg {
+  /*
+  For IE9. Without, occasionally draws shapes
+  outside the boundaries of <svg> rectangle.
+*/
+  overflow: hidden; }
+
+/* !------------------- General Styles Start --------------- */
+* {
+  font-family: Helvetica, sans-serif;
+  font-size: 1em; }
+
+h2 {
+  padding: 20px 5%;
+  font-size: 1.25em; }
+
+.contact-wrapper {
+  background-color: #323232;
+  width: 100%;
+  border-radius: 20px;
+  color: white; }
+
+.contacts {
+  position: relative;
+  height: 50px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  border-top: 2px solid black; }
+  .contacts:nth-of-type(even) {
+    background-color: #1a1a1a; }
+  .contacts:nth-of-type(odd) {
+    background-color: #212121; }
+  .contacts:hover div.contacts-base {
+    display: none; }
+  .contacts:hover div.contacts-hover {
+    display: -webkit-box;
+    display: flex; }
+
+.contacts-base {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: flex; }
+  .contacts-base .left {
+    width: 33.3333%; }
+  .contacts-base .right {
+    width: 33.6667%; }
+  .contacts-base .hidden {
+    display: none; }
+
+.contact {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  width: 33.3333%;
+  border-right: 1px solid #161616;
+  padding-left: 5%; }
+
+.online-status {
+  margin-right: 15px; }
+  .online-status .online-color {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px; }
+    .online-status .online-color.online {
+      background-color: lime; }
+    .online-status .online-color.offline {
+      background-color: red; }
+    .online-status .online-color.incall {
+      background-color: olive; }
+    .online-status .online-color.busy {
+      background-color: yellow; }
+
+.contact-preview {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  padding-left: 20px; }
+
+.contacts-hover {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0; }
+  .contacts-hover .contact {
+    background-color: grey;
+    border: none;
+    height: 50px; }
+  .contacts-hover .full.contact-preview {
+    background-color: grey;
+    padding-top: 15px;
+    padding-bottom: 15px; }
+    .contacts-hover .full.contact-preview address p {
+      margin-bottom: 10px; }
+      .contacts-hover .full.contact-preview address p:last-of-type {
+        margin-bottom: 0; }
+      .contacts-hover .full.contact-preview address p.email {
+        color: aqua;
+        text-decoration: underline; }
+      .contacts-hover .full.contact-preview address p.phone, .contacts-hover .full.contact-preview address p.email {
+        cursor: pointer; }
+
+.toggle {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  padding: 20px 5%;
+  box-shadow: 0px -3px 3px black; }
+
+/* !------------------- Media Queries Start --------------- */
+/* !------------------- @Media 1200+ --------------- */
+/* !------------------- @Media 1199 or less --------------- */
+/* !------------------- @Media 991 or less --------------- */
+/* !------------------- @Media 767 or less --------------- */
+/* !------------------- @Media 399 or less --------------- */
+@media only screen and (max-width: 399px) {
+  .contact {
+    width: 40%; } }
+
+/* !------------------- @Media Special Media Breaks --------------- */
+

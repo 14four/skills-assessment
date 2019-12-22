@@ -1,0 +1,158 @@
+@import "reset";
+@import "colors";
+
+// !Variables
+$default-font: Helvetica, sans-serif;
+
+// !Extends
+
+
+/* !------------------- General Styles Start --------------- */
+* {
+	font-family: $default-font;
+	font-size: 1em;
+}
+h2 {
+	padding: 20px 5%;
+	font-size: 1.25em;
+}
+.contact-wrapper {
+	background-color: $base;
+	width: 100%;
+	border-radius: 20px;
+	color: white;
+}
+.contacts {
+	position: relative;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	border-top: 2px solid black;
+	&:nth-of-type(even) {
+		background-color: $secondary;
+	}
+	&:nth-of-type(odd) {
+		background-color: $primary;
+	}
+	&:hover {
+		div.contacts-base {
+			display: none;
+		}
+		div.contacts-hover {
+			display: flex;
+		}
+	}
+}
+.contacts-base {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	.left {
+		width: 33.3333%;
+	}
+	.right {
+		width: 33.6667%;
+	}
+	.hidden {
+		display: none;
+	}
+}
+.contact {
+	display: flex;
+	align-items: center;
+	width: 33.3333%;
+	border-right: 1px solid #161616;
+	padding-left: 5%;
+}
+.online-status {
+	margin-right: 15px;
+	.online-color {
+		border-radius: 50%;
+		width: 15px;
+		height: 15px;
+		&.online {
+			background-color: lime;
+		}
+		&.offline {
+			background-color: red;
+		}
+		&.incall {
+			background-color: olive;
+		}
+		&.busy {
+			background-color: yellow;
+		}
+	}
+}
+.contact-preview {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	padding-left: 20px;
+}
+.contacts-hover {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	.contact {
+		background-color: grey;
+		border: none;
+		height: 50px;
+	}
+	.full.contact-preview {
+		background-color: grey;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		address {
+			p {
+				margin-bottom: 10px;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+				&.email {
+					color: aqua;
+					text-decoration: underline;
+				}
+				&.phone, &.email {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+.toggle {
+	display: flex;
+	justify-content: flex-end;
+	padding: 20px 5%;
+	box-shadow: 0px -3px 3px black;
+}
+
+
+/* !------------------- Media Queries Start --------------- */
+
+/* !------------------- @Media 1200+ --------------- */
+@media only screen and (min-width: 1200px) {
+	
+}
+/* !------------------- @Media 1199 or less --------------- */
+@media only screen and (max-width: 1199px) {
+	
+}
+/* !------------------- @Media 991 or less --------------- */
+@media only screen and (max-width: 991px) {
+	
+}
+/* !------------------- @Media 767 or less --------------- */
+@media only screen and (max-width: 767px) {
+	
+}
+/* !------------------- @Media 399 or less --------------- */
+@media only screen and (max-width: 399px) {
+	.contact {
+		width: 40%;
+	}
+}
+/* !------------------- @Media Special Media Breaks --------------- */
