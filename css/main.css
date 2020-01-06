@@ -1,0 +1,143 @@
+body{
+	font-family: Lato;
+}
+
+section {
+	margin: auto;
+	border-radius: 25px;
+	background-color: #313131;
+	color: white;
+	width: 400px;
+	height: 450px;
+	max-height: 800px;
+}
+
+header {
+	padding: 7px;
+	padding-left: 20px;
+}
+
+a {
+	color: #21CBD1;
+}
+
+
+/*---- JS Controls ----*/
+.email {
+	display: none; /* Hide the email addresses by default */
+}
+
+.hidden {
+	display:none; /* For hiding elements by default */
+}
+
+.hide {
+	display: none !important; /* For hiding elements with JS */
+}
+
+
+.table-container {
+	background-color: #191919;
+}
+
+.opened {
+	background-color: #484848 !important; /* Change background color for open contact */
+	border: none !important;
+}
+
+.clear {
+	opacity: 1 !important; /* For the area that is not dimmed by dimmer */
+}
+
+.dimmer {
+    opacity:0.1;
+}
+
+
+/*---- Table ----*/
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+tr:nth-child(odd) {
+	background-color: #191919;
+	
+}
+
+tr:nth-child(even) {
+	background-color: #212121;
+}
+
+tr {
+	border: 1px solid black;
+}
+
+td{
+	padding: 10px;
+	padding-left: 20px;
+	overflow:visible;
+	max-height:24px !important;
+	margin: 0;
+}
+
+.name {
+	font-size: 20px;
+	border-right: 1px solid black;
+}
+
+.phone {
+	color: #4E4E4E;
+}
+
+.email {
+	color: #4E4E4E
+}
+
+.more-info {
+	overflow: visible;
+	background-color: #484848;
+	margin: 0;
+	padding-left: 0;
+}
+
+.more-info div {
+	float: right;
+	position: absolute; 
+	width: 100% !important;
+	padding-left: 20px;
+	max-width: 220px;
+}
+
+
+/*---- Status Signals ----*/
+.red-light {
+	background-color: #EA0807;
+}
+
+.yellow-light {
+	background-color: #F9F804;
+}
+
+.green-light {
+	background-color: #01FC21;
+}
+
+.light {
+	display: inline-block;
+	margin-right: 20px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+}
+
+
+/*---- Footer ----*/
+footer {
+	padding: 30px;
+	text-align: right;
+}
+
+select {
+	font-size: 20px
+}
