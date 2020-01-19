@@ -83,19 +83,23 @@ ids.forEach(function(id) {
     const elem = document.getElementById(id);
     
     elem.onclick = function(e) {
-        if(elem.classList.contains('expanded')) {
-            elem.classList.remove('expanded');
-            overlay.classList.add('hidden');
+        if(e.target.tagName.toLowerCase() === 'a') {
+            e.target.href;
         } else {
-            elem.classList.add('expanded');
-            overlay.classList.remove('hidden');
+            if(elem.classList.contains('expanded')) {
+                elem.classList.remove('expanded');
+                overlay.classList.add('hidden');
+            } else {
+                elem.classList.add('expanded');
+                overlay.classList.remove('hidden');
+            }
         }
         
     };
 
 });
 
-// Close expanded contact when overlay is clicked
+// Close expanded contact and hide overlay when overlay is clicked
 overlay.onclick = function() {
     const showing = document.querySelector('.expanded');
     showing.classList.remove('expanded');
