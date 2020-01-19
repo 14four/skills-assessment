@@ -1,143 +1,141 @@
-body{
-	font-family: Lato;
-}
-
-section {
-	margin: auto;
-	border-radius: 25px;
-	background-color: #313131;
+body {
+	font: Lato;
 	color: white;
-	width: 400px;
-	height: 450px;
-	max-height: 800px;
 }
 
-header {
-	padding: 7px;
-	padding-left: 20px;
+p {
+	margin: 10px;
 }
 
 a {
-	color: #21CBD1;
+	color: #03EFE9;
 }
 
-
-/*---- JS Controls ----*/
-.email {
-	display: none; /* Hide the email addresses by default */
-}
-
-.hidden {
-	display:none; /* For hiding elements by default */
-}
-
-.hide {
-	display: none !important; /* For hiding elements with JS */
-}
-
-
-.table-container {
-	background-color: #191919;
-}
-
-.opened {
-	background-color: #484848 !important; /* Change background color for open contact */
-	border: none !important;
-}
-
-.clear {
-	opacity: 1 !important; /* For the area that is not dimmed by dimmer */
-}
-
-.dimmer {
-    opacity:0.1;
-}
-
-
-/*---- Table ----*/
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-tr:nth-child(odd) {
-	background-color: #191919;
-	
-}
-
-tr:nth-child(even) {
-	background-color: #212121;
-}
-
-tr {
+/* Containers */
+.app-container {
+	margin: auto;
 	border: 1px solid black;
+	border-radius: 25px;
+	background-color: #2C2C2C;
+	color: white;
+	width: 300px;
+	height: 433px;
+	overflow: hidden;
 }
 
-td{
-	padding: 10px;
+.header {
 	padding-left: 20px;
-	overflow:visible;
-	max-height:24px !important;
-	margin: 0;
+	position: relative;
+	z-index: 3;
+}
+
+
+
+.footer {
+	background-color: #313131;
+	text-align: right;
+	padding-top: 10px;
+	padding-right: 20px;
+}
+
+/*---- Contacts ----*/
+.contact {
+	border: 1px solid #131313;
+	display: flex;
 }
 
 .name {
-	font-size: 20px;
-	border-right: 1px solid black;
+	display: inline-block;
+	width: 30%;
 }
 
-.phone {
-	color: #4E4E4E;
-}
-
-.email {
-	color: #4E4E4E
-}
-
-.more-info {
-	overflow: visible;
-	background-color: #484848;
-	margin: 0;
-	padding-left: 0;
-}
-
-.more-info div {
-	float: right;
-	position: absolute; 
-	width: 100% !important;
+.col1 {
+	display: inline-block;
+	border-right: 1px solid #131313;
+	width: 35%;
 	padding-left: 20px;
-	max-width: 220px;
+	/* height: 47px; */
 }
+
+.col2 {
+	display: inline-block;
+	color: #4F4F4F;
+	width: 65%;
+	font-size: 15px;
+	text-align: left;
+}
+
+.info-wrapper {
+	padding-left: 10px;
+}
+
 
 
 /*---- Status Signals ----*/
-.red-light {
+.offline {
 	background-color: #EA0807;
 }
 
-.yellow-light {
+.away {
 	background-color: #F9F804;
 }
 
-.green-light {
+.online {
 	background-color: #01FC21;
 }
 
 .light {
 	display: inline-block;
-	margin-right: 20px;
-	width: 14px;
-	height: 14px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
 }
 
 
-/*---- Footer ----*/
-footer {
-	padding: 30px;
-	text-align: right;
+/* JS controller */
+#overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.9);
+	z-index: 2;
+	cursor: pointer;
 }
 
-select {
-	font-size: 20px
+.hidden {
+	display: none;
+}
+
+.expanded {
+	background-color: #484848;
+	position: relative;
+	z-index: 10;
+}
+
+.expanded .col2 .info-wrapper {
+	color: white;
+	position: absolute;
+	background-color: #484848;
+	width: 100%;
+
+}
+
+.expanded .col2 .info-wrapper .email {
+	display: none;
+}
+
+.expanded .col2 .phone,
+.expanded .col2 #email-link,
+.expanded .col2 .address {
+	display: block;
+	position: relative;
+}
+
+.contact:last-child.expanded .col2 .info-wrapper,
+.contact:nth-last-child(2).expanded .col2 .info-wrapper {
+	bottom: 0;
 }

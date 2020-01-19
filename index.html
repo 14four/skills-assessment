@@ -1,153 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<title>Contacts</title>
-		<link rel="stylesheet" href="css/main.css" />
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<body>
-		<section>
-			<!-- Header -->
-			<header>
-				<h1>Contacts</h1>
-			</header>
-			
-			<!-- Main Content Area -->
-			<section class="table-container">
-				<table cellpadding=0>
-					<tr id="contact1" onclick="moreInfo('tab1', 'row1', 'contact1', 'name1')" class ="row table-row">
-						<td id="name1" width="40%" class="name"><div>
-							<div class="noexpand light green-light"></div>Christian</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab1" class="more-info hidden">
-							<div id="row1">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					<tr id="contact2" onclick="moreInfo('tab2', 'row2', 'contact2', 'name2')" class ="row table-row">
-						<td id="name2" width="40%" class="name"><div>
-							<div class="noexpand light green-light"></div>Rich</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab2" class="more-info hidden">
-							<div id="row2">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					<tr id="contact3" onclick="moreInfo('tab3', 'row3', 'contact3', 'name3')" class ="row table-row">
-						<td id="name3" width="40%" class="name"><div>
-							<div class="noexpand light green-light"></div>Scott</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab3" class="more-info hidden">
-							<div id="row3">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					<tr id="contact4" onclick="moreInfo('tab4', 'row4', 'contact4', 'name4')" class ="row table-row">
-						<td id="name4" width="40%" class="name"><div>
-							<div class="noexpand light green-light"></div>Danny</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab4" class="more-info hidden">
-							<div id="row4">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					<tr id="contact5" onclick="moreInfo('tab5', 'row5', 'contact5', 'name4')" class ="row table-row">
-						<td id="name5" width="40%" class="name"><div>
-							<div class="noexpand light red-light"></div>Taka</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab5" class="more-info hidden">
-							<div id="row5">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					<tr id="contact6" onclick="moreInfo('tab6', 'row6', 'contact6', 'name5')" class ="row table-row">
-						<td id="name6" width="40%" class="name"><div>
-							<div class="noexpand light yellow-light"></div>Tim</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab6" class="more-info hidden">
-							<div id="row6">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					<tr id="contact7" onclick="moreInfo('tab7', 'row7', 'contact7', 'name6')" class ="row table-row">
-						<td id="name7" width="40%" class="name"><div>
-							<div class="noexpand light green-light"></div>Patrick</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab7" class="more-info hidden">
-							<div id="row7">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					<tr id="contact7" onclick="moreInfo('tab7', 'row7', 'contact7', 'name7')" class ="row table-row">
-						<td id="name2" width="40%" class="name"><div>
-							<div class="noexpand light yellow-light"></div>Jacques</div>
-						</td>
-						<td class="phone">323-555-1234</td>
-						<td class="email">email@email.com</td>
-						<td rowspan="2" colspan="2" id="tab7" class="more-info hidden">
-							<div id="row7">
-								<a href="#">email@email.com</a>
-								<p>555.555.5555</p>
-								<p>6539 Wilton Ave.<br>Culver City CA 90234</p>
-							</div>	
-						</td>
-					</tr>
-					
-				</table>
+    <!-- Css -->
+    <link rel="stylesheet" href="css/main.css" />
+</head>
 
-			<!-- Footer -->
-			<footer>
-				<select id="dropDown" onchange="changeRows();">
-					<option value="phone">Phone number</option>
-					<option value="email">Email address</option>
-				</select>
-			</footer>
-			</section>
-			
-			
-		</section>
-		
-		<!-- js -->
-		<script src="js/main.js"></script>
-		
-		
-	</body>
+<body>
+    <section id="app-container" class="app-container">
+
+        <section class="header">
+            <h1>Contacts</h1>
+        </section>
+
+        <section id="contacts-container">
+            <div id="overlay" class="hidden"></div>
+            <!-- This is where the contacts will go -->
+        </section>
+
+        <section class="footer">
+            <select id="phone-email-toggle">
+                <option value="email">Email Address</option>
+                <option value="phone">Phone Number</option>
+
+            </select>
+        </section>
+
+    </section>
+    <!-- Js -->
+    <script src="js/contacts.js"></script>
+    <script src="js/app.js"></script>
+</body>
 
 </html>
+
+
