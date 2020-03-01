@@ -1,0 +1,182 @@
+/* Globals */
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+/* Header section */
+
+header {
+  background-image: linear-gradient(rgb(45,46,47),rgb(28,29,30));
+  color: white;
+  padding: 28px;
+  font-size: 25px;
+  border-bottom: 3px solid black;
+  border-radius: 25px 25px 0 0;
+  -webkit-box-shadow:3px 0px 10px #000000;
+  -moz-box-shadow:3px 0px 10px #000000;
+  box-shadow:3px 0px 10px #000000;
+}
+
+/* Contacts section */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(19,20,21);
+}
+
+#contact {
+  display: -webkit-flex;
+  display: flex;
+  background-color: rgb(24,25,26);
+  border-bottom: 3px solid rgb(13,14,14);
+  -webkit-box-shadow:2px 0px 5px #000000;
+  -moz-box-shadow:2px 0px 5px #000000;
+  box-shadow:2px 0px 5px #000000;
+  cursor: pointer;
+}
+
+.circleContainer {
+  padding: 20px;
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 50px;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 13px;
+  width: 13px;
+}
+
+.circle-lime {
+  background-color: lime;
+}
+
+.circle-yellow {
+  background-color: yellow;
+}
+
+.circle-red {
+  background-color: red;
+}
+
+.name {
+  padding: 15px 20px 10px 0;
+  color: white;
+  font-weight: normal;
+  font-size: 18px;
+  width: 100px;
+  border-right: 2px solid rgb(21,21,22);
+}
+
+.info {
+  padding: 15px;
+  font-weight: normal;
+  font-size: 18px;
+  color: rgb(67,68,69);
+}
+
+.email {
+  display: inline;
+}
+
+.email a {
+  color: rgb(67,68,69);
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.phoneNumber {
+  display: none;
+}
+
+.disabled {
+  background: rgba(0, 0, 0, 0.2) !important;
+  opacity: 0.2;
+}
+
+.contactSelected {
+  background-color: rgb(71,72,73) !important;
+}
+
+.nameSelected {
+  border-right: 0px;
+}
+
+.phoneNumberSelected {
+  display: inline-block;
+  margin-bottom: 1em;
+  font-weight: normal;
+}
+
+.emailSelected a{
+  color: rgb(99,214,228);
+  text-decoration: underline;
+  pointer-events: auto;
+}
+
+.address p{
+  font-weight: normal;
+}
+
+#container {
+  position: relative;
+}
+
+#floating {
+  position: absolute;
+  background-color: rgb(71,72,73);
+  color: white;
+  width: 56%;
+  margin-left: -15px;
+  padding: 15px;
+  float: right;
+  font-weight: normal;
+  z-index: 10;
+}
+
+#floating p {
+  margin: 0px;
+}
+
+.isHidden {
+  display: none;
+}
+
+/* Footer section */
+
+select {
+  width: 150px;
+  font-size: 15px;
+  border: 1px solid #000;
+  height: 25px;
+}
+
+footer {
+  text-align: right;
+  padding: 30px;
+  background-color: rgb(23,24,25);
+  border-radius: 0 0 25px 25px;
+  -webkit-box-shadow:3px 3px 10px #000000;
+  -moz-box-shadow:3px 3px 10px #000000;
+  box-shadow:3px 3px 10px #000000;
+}
+
+/* Used for smaller phone */
+@media only screen and (max-width: 375px) {
+  .name {
+    font-size: 16px;
+    padding: 18px 20px 10px 0;
+    width: 75px;
+  }
+
+  .info {
+    font-size: 16px;
+    padding: 18px;
+  }
+}
