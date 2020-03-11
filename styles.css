@@ -1,0 +1,144 @@
+#widget {
+  background: #303030;
+  color: #e6e6e6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border-radius: 15px;
+  border: 2px solid #424242;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#top-bar {
+  background: rgb(38, 38, 38);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(38, 38, 38, 1) 0%,
+    rgba(59, 59, 59, 1) 80%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(38, 38, 38, 1) 0%,
+    rgba(59, 59, 59, 1) 80%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(38, 38, 38, 1) 0%,
+    rgba(59, 59, 59, 1) 80%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#262626",endColorstr="#3b3b3b",GradientType=1);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid black;
+}
+
+#header {
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+#contact-table {
+  border: 1px solid black;
+  background: #212121;
+  position: relative;
+  z-index: 1;
+}
+
+.filter {
+  position: absolute;
+  background: black;
+  filter: opacity(70%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+}
+
+tr:nth-child(even) {
+  background: #1a1a1a;
+}
+
+.contact-name {
+  border-right: 1px solid black;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  position: relative;
+}
+
+.contact-name:hover {
+  background: #464646;
+}
+
+.contact-info {
+  border-bottom: 2px solid black;
+  padding: 10px;
+  padding-left: 5px;
+  height: 100%;
+  color: #646464;
+  font-size: 15px;
+  text-align: start;
+  width: 100%;
+}
+
+.status-button-available {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: #08cd1e;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.status-button-busy {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: #fc0101;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.status-button-away {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: #c3c01a;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.overlay {
+  background: #464646;
+  width: 165px;
+  position: absolute;
+  left: 120px;
+  top: 0px;
+  padding-left: 15px;
+  font-size: 12px;
+  z-index: 3;
+}
+
+.overlay p:first-child {
+  color: cyan;
+  text-decoration: underline;
+}
+
+#bottom-bar {
+  background: #202020;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
