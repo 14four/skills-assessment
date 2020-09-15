@@ -1,0 +1,119 @@
+{
+  "name": "skills-assessment",
+  "version": "1.0.0",
+  "description": "Skills Assesment",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp watch",
+    "build": "gulp build",
+    "start": "gulp start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssmith-wombatweb/skills-assessment.git"
+  },
+  "author": "Simeon Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssmith-wombatweb/skills-assessment/issues"
+  },
+  "homepage": "https://github.com/ssmith-wombatweb/skills-assessment#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.8.6",
+    "browser-sync": "^2.26.12",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-recommended": "^4.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.1.1",
+    "stylelint": "^13.7.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.18.0"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-prettier",
+      "stylelint-config-recommended-scss"
+    ],
+    "plugins": [
+      "stylelint-prettier",
+      "stylelint-scss"
+    ],
+    "rules": {
+      "max-nesting-depth": [
+        3,
+        {
+          "ignore": [
+            "blockless-at-rules",
+            "pseudo-classes"
+          ]
+        }
+      ],
+      "prettier/prettier": [
+        true,
+        {
+          "parser": "scss"
+        }
+      ]
+    }
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
+    "plugins": [
+      "eslint-plugin-prettier"
+    ],
+    "extends": [
+      "esnext",
+      "esnext/style-guide",
+      "node",
+      "node/style-guide",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        1
+      ],
+      "import/no-commonjs": 0
+    },
+    "env": {
+      "browser": true
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "semi": true,
+    "useTabs": false,
+    "arrowParens": "always",
+    "proseWrap": "preserve"
+  },
+  "sass": {
+    "includePaths": [
+      "node_modules"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}

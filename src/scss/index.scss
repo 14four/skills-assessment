@@ -1,0 +1,268 @@
+@import './_variables/index.scss';
+@import './_globals/index.scss';
+
+body {
+  background-color: $color-white;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+// Contacts list styling.
+.contacts {
+  position: relative;
+  width: 17.4375rem;
+  box-shadow: 0 5px 10px rgba(#000000, 0.5);
+  border-radius: 0.75rem;
+  // Setups gradient "border"
+  padding: 0.125rem;
+  background: linear-gradient(-94deg, #4d4d4d, #252525);
+
+  // Creates main background to "cut out" gradient border.
+  &::before {
+    background-color: $color-black;
+    position: absolute;
+    width: calc(100% - 0.25rem);
+    height: calc(100% - 0.25rem);
+    top: 0.125rem;
+    left: 0.125rem;
+    content: '';
+    border-radius: 0.625rem;
+    z-index: 0;
+  }
+
+  > * {
+    background: $color-black;
+    overflow: auto;
+    z-index: 1;
+    position: relative;
+  }
+
+  > header {
+    border-radius: 0.625rem 0.625rem 0 0;
+    padding: 1.125rem 1rem;
+    background: linear-gradient(to top, #262626, #3d3d3d), $color_dark-gray;
+
+    > h1 {
+      margin: 0;
+    }
+  }
+
+  // Contact list styling
+  .contacts__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: visible;
+    z-index: 10;
+    transition: background-color 0.25s ease-in-out;
+
+    // Makes all the details invisible so that the class toggling will show/hide them
+    &__email,
+    &__phone,
+    &__address {
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+      pointer-events: none;
+    }
+
+    &__address {
+      display: none;
+    }
+
+    // Shows the phone number when class is active.
+    &--show-phone {
+      .contacts__list__phone {
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 0.25s ease-in-out;
+      }
+    }
+
+    // Shows the email when class is active.
+    &--show-email {
+      .contacts__list__email {
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 0.25s ease-in-out;
+      }
+    }
+
+    li {
+      position: relative;
+      z-index: 10;
+      margin: 0.125rem 0;
+      display: flex;
+      cursor: pointer;
+      transition: background-color 0.25s ease-in-out, opacity 0.25s ease-in-out;
+
+      header {
+        display: flex;
+        align-items: center;
+        flex: 1 1 40%;
+        max-width: 40%;
+        padding: 0.75rem 1rem 0.75rem 1.125rem;
+        h5 {
+          font-size: 0.75rem;
+          font-weight: $font-weight_body;
+          margin: 0 0 0 0.875rem;
+        }
+      }
+
+      // Create alternating colors on list.
+      &:nth-child(odd) {
+        background-color: $contact-list__item_gray;
+      }
+
+      &:nth-child(even) {
+        background-color: $contact-list_item_gray--50;
+      }
+
+      // Creates "gradient" on the last child element.
+      &:last-child {
+        overflow: hidden;
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 10px;
+          top: 100%;
+          left: 0;
+          box-shadow: 0 0 5px rgba(#000000, 0.75);
+          z-index: -300;
+        }
+      }
+    }
+
+    // Setups colors for status icons based on the aria label.
+    &__icon {
+      min-width: 0.5rem;
+      min-height: 0.5rem;
+      border-radius: 50%;
+      display: block;
+
+      &[aria-label='online'] {
+        background-color: $color-green;
+      }
+      &[aria-label='away'] {
+        background-color: $color-yellow;
+      }
+      &[aria-label='offline'] {
+        background-color: $color-red;
+      }
+    }
+
+    // Makes the details absolute so they don't expand outside of the list item.
+    &__details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0.75rem 1.125rem;
+      width: 100%;
+      transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+      box-shadow: -2px 0 2px rgba(#000000, 0.15);
+      min-height: 100%;
+
+      // Wrapper that defines the size and position of the details
+      &__wrapper {
+        position: relative;
+        flex: 1 1 60%;
+        max-width: 60%;
+      }
+
+      p {
+        margin: 0 0 0.75rem 0;
+        font-size: 0.75rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .contacts__list {
+        &__email,
+        &__phone {
+          position: absolute;
+        }
+      }
+    }
+
+    // When the list is in hover or focus all contact lists items will become transparent.
+    &:hover,
+    &:focus {
+      background-color: #000000;
+      li {
+        opacity: 0.25;
+
+        // Makes all details transition immediately to transparent so when they go back to being absolute they don't show stacked.
+        .contacts__list {
+          &__email,
+          &__phone,
+          &__address {
+            transition: opacity 0s;
+          }
+        }
+
+        // If you hover over a specific line item while the list is hovered then it is show with it's details.
+        &:hover,
+        &:focus {
+          background-color: $color_med-gray;
+          z-index: 200;
+          opacity: 1;
+          overflow: visible;
+          transition: background-color 0.25s ease-in-out;
+
+          &:before {
+            opacity: 0;
+          }
+
+          .contacts__list {
+            &__details {
+              background-color: $color_med-gray;
+              transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+              box-shadow: none;
+            }
+
+            &__email,
+            &__phone,
+            &__address {
+              position: static;
+              opacity: 1;
+              pointer-events: all;
+              transition: opacity 0.25s ease-in-out;
+              display: block;
+
+              a {
+                color: $color-white;
+
+                &:hover,
+                &:focus {
+                  color: $color-cyan;
+                }
+              }
+            }
+
+            &__email {
+              a {
+                color: $color_cyan;
+                text-decoration: underline;
+
+                &:hover,
+                &:focus {
+                  color: $color-white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > footer {
+    border-radius: 0 0 0.625rem 0.625rem;
+    padding: 0.875rem;
+    text-align: right;
+    background-color: #202020;
+  }
+}
