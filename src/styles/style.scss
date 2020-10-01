@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap');
+// Chivo font import
+
+// mixin for contact status
+@mixin set-dot($dot-color) {
+  padding-right: 10px;
+  content: "•";
+  font-size: 30px;
+  color: $dot-color;
+  position: relative;
+  bottom: -5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: chivo;
+}
+
+// VARIABLES
+$border-list: 1px solid #1A1A1A;
+$box-width: 350px;
+
+.contact-widget {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  width: $box-width;
+  min-height: 500px;
+  border-radius: 25px;
+  padding-bottom: 10px;
+  margin: auto;
+  margin-top: 50px;
+  background-color: #212121;
+  color: white;
+
+  .contact-widget-header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 25px 10px 10px 20px;
+    font-size: 20px;
+  }
+  .contact-widget-list-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    ul {
+      margin: 0;
+      padding: 0;
+      width: $box-width;
+    .clicked-contact {
+      background-color: #AAAAAA !important;
+      background: rgb(0, 0, 0);
+      .contact-number-email-value {
+        background-color: #AAAAAA !important;
+        position:absolute;
+        left:300;
+        right:300;
+        z-index: 1;
+        padding: 15px;
+        color: white;
+      }
+      .contact-dot-red {
+        @include set-dot(red);
+      }
+      .contact-dot-green {
+        @include set-dot(rgb(0, 255, 42));
+      }
+      .contact-dot-gold {
+        @include set-dot(rgb(172, 142, 9));
+      }
+      .contact-dot-yellow {
+        @include set-dot(rgb(255, 251, 0));
+      }
+    }
+    .li-contact {
+      border-bottom: $border-list;
+      padding: 7px;
+      color: white;
+      display: block;
+      &:first-child {
+        border-top: $border-list;
+      }
+      .contact-dot-red {
+        @include set-dot(red);
+      }
+      .contact-dot-green {
+        @include set-dot(rgb(0, 255, 42));
+      }
+      .contact-dot-gold {
+        @include set-dot(rgb(172, 142, 9));
+      }
+      .contact-dot-yellow {
+        @include set-dot(rgb(255, 251, 0));
+      }
+    }
+    .contact-list-name {
+      display: inline-block;
+      padding-right: 10px;
+    }
+    .contact-number-email-value {
+      display: inline-block;
+      justify-content: flex-end;
+      margin-left: 30px;
+      color: rgb(61, 61, 60);
+
+    }
+    .even {
+      background-color: #141414;
+    }
+    .odd {
+      background-color: #232323;
+    }
+  }
+}
+.contact-widget-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  margin-right: 15px;
+}
+}
