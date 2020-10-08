@@ -1,223 +1,147 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap");
-/* 
-style.scss is where the magic happened, this was just auto generated
-*/
 * {
   margin: 0;
   padding: 0;
   font-family: chivo;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .contact-widget {
+  color: white;
+  background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 20%;
-  width: 350px;
-  min-height: 500px;
-  border-radius: 25px;
-  padding-bottom: 10px;
-  margin: auto;
-  margin-top: 50px;
-  background-color: #212121;
-  color: white;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 300px;
+  min-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  border: 2px solid;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4c4c4c), to(#252525));
+  background-image: linear-gradient(#4c4c4c, #252525);
+  border-radius: 15px;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 
-.contact-widget .contact-widget-header {
+.contact-widget > div:first-child {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3e3e3e), to(#252525));
+  background-image: linear-gradient(#3e3e3e, #252525);
+  border-radius: 13px 13px 0 0;
+  height: 55px;
+  padding: 18px 10px 10px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-weight: 590;
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  padding: 25px 10px 10px 20px;
-  font-size: 20px;
+      -ms-flex-pack: start;
+          justify-content: start;
 }
 
-.contact-widget .contact-widget-list-container {
+.contact-widget > div:last-child {
+  background-color: #202020;
+  border-radius: 0 0 13px 13px;
+  height: 48px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contact-widget > div:last-child > select {
+  border-radius: 5px;
+  padding: 0 10px 0 5px;
+  height: 17px;
+  font-size: .65em;
+  margin: 15px 10px 10px 10px;
+}
+
+.contact-widget-list-container {
+  border-top: 2px #131313 solid;
+}
+
+.contact-widget-list-container > ul > li {
+  background-color: #1a1a1a;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 2px #131313 solid;
+}
+
+.contact-widget-list-container > ul > li > span:first-child {
+  width: 5%;
+  margin: auto auto auto 10px;
+  text-align: start;
+  font-size: 1.6em;
+  color: #29fd39;
+}
+
+.contact-widget-list-container > ul > li > span:nth-child(2) {
+  width: 25%;
+  margin: auto auto auto 10px;
+  text-align: start;
+  font-size: small;
+}
+
+.contact-widget-list-container > ul > li > span:nth-child(3) {
+  border-right: 2px #171717 solid;
+}
+
+.contact-widget-list-container > ul > li > span:last-child {
+  width: 70%;
+  font-size: 13.5px;
+  color: #474747;
   margin: auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  text-align: start;
+  margin-left: 10px;
+  font-size: small;
 }
 
-.contact-widget .contact-widget-list-container ul {
-  margin: 0;
-  padding: 0;
-  width: 350px;
+.contact-widget-list-container > ul > li:nth-child(odd) {
+  background: #212121;
 }
 
-.contact-widget .contact-widget-list-container ul .clicked-contact {
-  background-color: #aaaaaa !important;
-  background: black;
+.contact-widget-list-container > ul > li:nth-child(5) > span:first-child {
+  color: #fc0d1b;
 }
 
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .clicked-contact
-  .contact-number-email-value {
-  background-color: #aaaaaa !important;
-  position: absolute;
-  left: 300;
-  right: 300;
+.contact-widget-list-container > ul > li:nth-child(6) > span:first-child {
+  color: #c3bf30;
+}
+
+.contact-widget-list-container > ul > li:nth-child(8) > span:first-child {
+  color: #fffa37;
+}
+
+.contact-widget-list-container > ul > li:hover {
+  background-color: #484848;
+  border: 0;
+}
+
+.contact-widget-list-container > ul > li:hover > span {
+  border: none;
+}
+
+.contact-widget-list-container > ul > li:hover > span:last-child {
+  width: 70%;
+  background-color: #484848;
   z-index: 1;
-  padding: 15px;
+  padding: 10px 10px 10px 20px;
   color: white;
-}
-
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .clicked-contact
-  .contact-dot-red {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: red;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .clicked-contact
-  .contact-dot-green {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: #00ff2a;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .clicked-contact
-  .contact-dot-gold {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: #ac8e09;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .clicked-contact
-  .contact-dot-yellow {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: #fffb00;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget .contact-widget-list-container ul .li-contact {
-  border-bottom: 1px solid #1a1a1a;
-  padding: 7px;
-  color: white;
-  display: block;
-}
-
-.contact-widget .contact-widget-list-container ul .li-contact:first-child {
-  border-top: 1px solid #1a1a1a;
-}
-
-.contact-widget .contact-widget-list-container ul .li-contact .contact-dot-red {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: red;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .li-contact
-  .contact-dot-green {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: #00ff2a;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .li-contact
-  .contact-dot-gold {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: #ac8e09;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget
-  .contact-widget-list-container
-  ul
-  .li-contact
-  .contact-dot-yellow {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: #fffb00;
-  position: relative;
-  bottom: -5px;
-}
-
-.contact-widget .contact-widget-list-container ul .contact-list-name {
-  display: inline-block;
-  padding-right: 10px;
-}
-
-.contact-widget .contact-widget-list-container ul .contact-number-email-value {
-  display: inline-block;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  margin-left: 30px;
-  color: #3d3d3c;
-}
-
-.contact-widget .contact-widget-list-container ul .even {
-  background-color: #141414;
-}
-
-.contact-widget .contact-widget-list-container ul .odd {
-  background-color: #232323;
-}
-
-.contact-widget .contact-widget-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  margin-top: auto;
-  margin-right: 15px;
 }
 /*# sourceMappingURL=style.css.map */

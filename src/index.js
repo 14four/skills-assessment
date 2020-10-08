@@ -1,9 +1,8 @@
 // Global state of email or number selected, defauly phone
 var emailOrPhone = "email";
 
-// global variable for if element is even (hack I know)
-var clickedContactPosition = -1;
-var clickedContact = "";
+// global variable for hovered element pos
+var hoveredContactPos = -1;
 
 // Numbers and emails
 var numbers = [
@@ -27,6 +26,17 @@ var emails = [
   "jacques@aol.com",
 ];
 
+// Json object of all contacts, initialized below
+// with event listeners added
+var contactsHTML = document.querySelectorAll(
+  ".contact-widget-list-container > ul > li"
+);
+for (var i = 0; i < contactsHTML.length; i++) {
+  contactsHTML[i].addEventListener("mouseenter", contactHover); //mouseout
+  contactsHTML[i].addEventListener("mouseleave", contactMouseLeave); //mouseout
+  //initialize contacts
+}
+
 // Event listener for on change
 document
   .getElementsByClassName("contact-widget-footer")[0]
@@ -36,71 +46,61 @@ document
     setEmailOrPhone();
   });
 
-// Event listener for contact clicked
-var contacts = document.getElementsByClassName("li-contact");
-for (var i = 0; i < contacts.length; i++) {
-  contacts[i].addEventListener("click", contactClicked);
-}
-// Event listener for contact clicked
-var contacts = document.getElementsByClassName("li-contact");
-for (var i = 0; i < contacts.length; i++) {
-  contacts[i].addEventListener("click", contactClicked);
-}
+function contactHover(event) {
+  var target = event.currentTarget;
 
-function contactClicked(event) {
-  if (clickedContactPosition != -1) {
-    highlightedContactClicked(clickedContact);
+  //getting position of original contact
+  var list = document.querySelectorAll(
+    ".contact-widget-list-container > ul > li"
+  );
+  for (var i = 0; i < list.length; i++) {
+    if (list[i] === target) {
+      hoveredContactPos = i;
+    } else {
+      list[i].style.opacity = ".2";
+    }
   }
-  clickedContact = event.currentTarget;
 
-  //changes class of target
-  event.currentTarget.className = "clicked-contact";
-
-  //sets opacity
-  var listTmp = document.getElementsByClassName("li-contact");
-  for (var i = 0; i < listTmp.length; i++) {
-    listTmp[i].style.opacity = 0.3;
+  // STYLING AND SPAN ELEMENTS CHANGE
+  var children = event.currentTarget.children;
+  var child;
+  for (i = 0; i < children.length; i++) {
+    if (children[i].className === "contact-number-email-value") {
+      child = children[i];
+      break;
+    }
   }
-  //gets info of contact
-  var clickedContactInfo = event.currentTarget.childNodes[3].innerHTML;
-  var person;
-  if (clickedContactInfo.includes("@")) {
-    person = emails.indexOf(clickedContactInfo);
-  } else {
-    person = numbers.indexOf(clickedContactInfo);
-  }
-  //set position
-  clickedContactPosition = person;
-  // display new text
-  var newInnerHTML = "<a>" + emails[person] + "</a>";
-  newInnerHTML += "<p>" + numbers[person] + "</p>";
-  newInnerHTML += "<p>2963 Desmet Road</p>";
-  newInnerHTML += "<p>Liberty Lake, WA</p>";
-  event.currentTarget.childNodes[3].innerHTML = newInnerHTML;
-
-  event.currentTarget.removeEventListener("click", contactClicked);
-  event.currentTarget.addEventListener("click", highlightedContactClicked);
+  var info =
+    "<p style='color: #45ccb8; text-decoration: underline; padding-bottom:7px;'>" +
+    emails[hoveredContactPos] +
+    "</p>";
+  info +=
+    "<p style='padding-bottom:7px;'>" + numbers[hoveredContactPos] + "</p>";
+  info += "<p>659 Wilton Ave.</p>";
+  info += "<p>Culver City CA 90234</p>";
+  child.innerHTML = info;
 }
 
-function highlightedContactClicked(event) {
-  //remove opacity
-  var target = event == clickedContact ? event : event.currentTarget;
-  var listTmp = document.getElementsByClassName("li-contact");
-  for (var j = 0; j < listTmp.length; j++) {
-    listTmp[j].style.opacity = 1;
+function contactMouseLeave(event) {
+  var list = document.querySelectorAll(
+    ".contact-widget-list-container > ul > li"
+  );
+  for (var i = 0; i < list.length; i++) {
+    list[i].style.opacity = "1";
   }
-  var newInnerHTML;
-  if (emailOrPhone === "email") newInnerHTML = emails[clickedContactPosition];
-  else newInnerHTML = numbers[clickedContactPosition];
-  target.childNodes[3].innerHTML = newInnerHTML;
+  var children = list[hoveredContactPos].children;
+  var val =
+    emailOrPhone === "email"
+      ? emails[hoveredContactPos]
+      : numbers[hoveredContactPos];
 
-  //sets class of target
-  var evenOrOdd = clickedContactPosition % 2 === 0 ? "even" : "odd";
-
-  target.className = "li-contact " + evenOrOdd;
-  target.removeEventListener("click", highlightedContactClicked);
-  target.addEventListener("click", contactClicked);
-  clickedContactPosition = -1;
+  for (i = 0; i < children.length; i++) {
+    if (children[i].className === "contact-number-email-value") {
+      children[i].innerHTML = val;
+      break;
+    }
+  }
+  hoveredContactPos = -1;
 }
 
 // Function to set emails or phones on page

@@ -1,123 +1,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap');
 // Chivo font import
 
-// mixin for contact status
-@mixin set-dot($dot-color) {
-  padding-right: 10px;
-  content: "•";
-  font-size: 30px;
-  color: $dot-color;
-  position: relative;
-  bottom: -5px;
-}
 
 * {
   margin: 0;
   padding: 0;
   font-family: chivo;
+  font-weight: 400;
+  box-sizing: border-box;
 }
 
-// VARIABLES
-$border-list: 1px solid #1A1A1A;
-$box-width: 350px;
+// header element
+$header-background: linear-gradient(rgb(62, 62, 62), rgb(37, 37, 37));
+$header-height: 55px;
+
+// footer element
+$footer-background: rgb(32, 32, 32);
+$footer-height: 48px;
+//borders
+$border-list: 2px rgb(19, 19, 19) solid;
+$border-list-side: 2px rgb(23, 23, 23) solid;
+$border-radius: 13px;
+//list general styling
+$odd-list-color: rgb(33, 33, 33);
+$even-list-color: rgb(26, 26, 26);
+$list-item-height: 40px;
+$hover-list-color: rgb(72, 72, 72);
+$email-phone-coloring:  rgb(71, 71, 71);
+// dot coloring
+$green-dot: rgb(41, 253, 57);
+$red-dot: rgb(252, 13, 27);
+$yellow-dot: rgb(255, 250, 55);
+$gold-dot: rgb(195, 191, 48);;
 
 .contact-widget {
+  //coloring
+  color: white;
+  background-color: black;
+  //flex
   display: flex;
   flex-direction: column;
-  width: 20%;
-  width: $box-width;
-  min-height: 500px;
-  border-radius: 25px;
-  padding-bottom: 10px;
-  margin: auto;
-  margin-top: 50px;
-  background-color: #212121;
-  color: white;
-
-  .contact-widget-header {
+  //heigth-width
+  width: 300px;
+  min-height:200px;
+  //margin
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  //border
+  border: 2px solid;
+  background-image: linear-gradient(rgb(76,76,76), rgb(37,37,37));
+  border-radius: 15px;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  //main header component
+  & > div:first-child {
+    background-image: $header-background;
+    border-radius: $border-radius $border-radius 0 0;
+    height: $header-height;
+    padding: 18px 10px 10px 20px;
     display: flex;
-    justify-content: flex-start;
-    padding: 25px 10px 10px 20px;
-    font-size: 20px;
+    font-weight: 590;
+    justify-content: start;
   }
-  .contact-widget-list-container {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    align-items: center;
-    ul {
-      margin: 0;
-      padding: 0;
-      width: $box-width;
-    .clicked-contact {
-      background-color: #AAAAAA !important;
-      background: rgb(0, 0, 0);
-      .contact-number-email-value {
-        background-color: #AAAAAA !important;
-        position:absolute;
-        left:300;
-        right:300;
-        z-index: 1;
-        padding: 15px;
-        color: white;
-      }
-      .contact-dot-red {
-        @include set-dot(red);
-      }
-      .contact-dot-green {
-        @include set-dot(rgb(0, 255, 42));
-      }
-      .contact-dot-gold {
-        @include set-dot(rgb(172, 142, 9));
-      }
-      .contact-dot-yellow {
-        @include set-dot(rgb(255, 251, 0));
-      }
-    }
-    .li-contact {
-      border-bottom: $border-list;
-      padding: 7px;
-      color: white;
-      display: block;
-      &:first-child {
-        border-top: $border-list;
-      }
-      .contact-dot-red {
-        @include set-dot(red);
-      }
-      .contact-dot-green {
-        @include set-dot(rgb(0, 255, 42));
-      }
-      .contact-dot-gold {
-        @include set-dot(rgb(172, 142, 9));
-      }
-      .contact-dot-yellow {
-        @include set-dot(rgb(255, 251, 0));
-      }
-    }
-    .contact-list-name {
-      display: inline-block;
-      padding-right: 10px;
-    }
-    .contact-number-email-value {
-      display: inline-block;
-      justify-content: flex-end;
-      margin-left: 30px;
-      color: rgb(61, 61, 60);
 
-    }
-    .even {
-      background-color: #141414;
-    }
-    .odd {
-      background-color: #232323;
+  //main footer component
+  & > div:last-child {
+    background-color: $footer-background;
+    border-radius: 0 0 $border-radius $border-radius;
+
+    height: $footer-height;
+    
+    display: flex;
+    justify-content: flex-end;
+    & > select {
+      border-radius: 5px;
+      padding: 0 10px 0 5px;
+      height: 17px;
+      font-size: .65em;
+      margin: 15px 10px 10px 10px;
     }
   }
 }
-.contact-widget-footer {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: auto;
-  margin-right: 15px;
-}
+
+// main list component
+.contact-widget-list-container {
+    border-top:$border-list;
+      & > ul > li
+      {
+        background-color: $even-list-color;
+        height: $list-item-height;
+        display: flex;
+        flex-direction: row;
+        border-bottom:$border-list;
+        & > span:first-child{
+          width: 5%;
+          margin: auto auto auto 10px;
+          text-align: start;
+          font-size: 1.6em;
+          color: $green-dot;
+
+        }
+        // sets first span with •
+        & > span:nth-child(2){
+          width: 25%;
+          margin: auto auto auto 10px;
+          text-align: start;
+          font-size: small;
+        }
+        // invisible span for border
+        & > span:nth-child(3){
+          border-right:$border-list-side;
+        }
+        // for phone/email span
+        & > span:last-child {
+          width: 70%;
+          font-size: 13.5px;
+          color: $email-phone-coloring;
+          margin: auto;
+          text-align: start;
+          margin-left: 10px;
+          font-size: small;
+        }
+      }
+
+      // for changing color of every other row
+      & > ul > li:nth-child(odd) {
+        background: $odd-list-color; 
+      }
+
+      //for styling the dots
+      & > ul > li:nth-child(5) > span:first-child {
+        color: $red-dot;
+      }
+      & > ul > li:nth-child(6) > span:first-child {
+        color: $gold-dot;
+      }
+      & > ul > li:nth-child(8) > span:first-child {
+        color: $yellow-dot;
+      }
+
+      //on hover styling effect
+      & > ul > li:hover {
+        background-color: $hover-list-color;
+        border: 0;
+        & > span {
+          border: none;
+        }
+        & > span:last-child {
+          width: 70%;
+          background-color: $hover-list-color;
+          z-index: 1;
+          padding: 10px 10px 10px 20px;
+          color: white;
+        }
+      }
+
 }
