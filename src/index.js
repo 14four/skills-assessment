@@ -5,16 +5,7 @@ var emailOrPhone = "email";
 var hoveredContactPos = -1;
 
 // Numbers and emails
-var numbers = [
-  "831-272-2839",
-  "131-232-2839",
-  "241-292-2239",
-  "341-252-2239",
-  "441-252-2239",
-  "541-272-2239",
-  "641-228-2239",
-  "741-212-2239",
-];
+var phoneNumber = "323-555-1234";
 var emails = [
   "christian@yahoo.com",
   "rich@tripod.com",
@@ -71,12 +62,13 @@ function contactHover(event) {
     }
   }
   var info =
-    "<p style='color: #45ccb8; text-decoration: underline; padding-bottom:7px;'>" +
+    "<p  onclick=\"window.open('mailto:" +
+    emails[hoveredContactPos] +
+    "')\" class='email-hypertext'>" +
     emails[hoveredContactPos] +
     "</p>";
-  info +=
-    "<p style='padding-bottom:7px;'>" + numbers[hoveredContactPos] + "</p>";
-  info += "<p>659 Wilton Ave.</p>";
+  info += "<p style='padding-bottom:10px;'>555.555.5555</p>";
+  info += "<p>6539 Wilton Ave.</p>";
   info += "<p>Culver City CA 90234</p>";
   child.innerHTML = info;
 }
@@ -89,10 +81,7 @@ function contactMouseLeave(event) {
     list[i].style.opacity = "1";
   }
   var children = list[hoveredContactPos].children;
-  var val =
-    emailOrPhone === "email"
-      ? emails[hoveredContactPos]
-      : numbers[hoveredContactPos];
+  var val = emailOrPhone === "email" ? emails[hoveredContactPos] : phoneNumber;
 
   for (i = 0; i < children.length; i++) {
     if (children[i].className === "contact-number-email-value") {
@@ -109,7 +98,7 @@ function setEmailOrPhone() {
   var list = document.getElementsByClassName("contact-number-email-value");
   for (var i = 0; i < list.length; i++) {
     if (emailOrPhone === "email") list[i].innerHTML = emails[i];
-    else list[i].innerHTML = numbers[i];
+    else list[i].innerHTML = phoneNumber;
   }
   clickedContactPosition = -1;
 }

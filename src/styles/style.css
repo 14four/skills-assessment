@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
-  font-family: chivo;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -18,38 +19,39 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 300px;
+  width: 299px;
   min-height: 200px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
-  border: 2px solid;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#4c4c4c), to(#252525));
   background-image: linear-gradient(#4c4c4c, #252525);
+  padding: .125em;
   border-radius: 15px;
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+  -webkit-box-shadow: 0 5px 6px -2px #807f7f;
+          box-shadow: 0 5px 6px -2px #807f7f;
 }
 
 .contact-widget > div:first-child {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#3e3e3e), to(#252525));
   background-image: linear-gradient(#3e3e3e, #252525);
   border-radius: 13px 13px 0 0;
-  height: 55px;
-  padding: 18px 10px 10px 20px;
+  height: 53px;
+  padding: 19px 10px 10px 19px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-weight: 590;
+  font-weight: 500;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+  font-size: 1.04em;
 }
 
 .contact-widget > div:last-child {
   background-color: #202020;
   border-radius: 0 0 13px 13px;
-  height: 48px;
+  height: 3.05em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,10 +62,10 @@
 
 .contact-widget > div:last-child > select {
   border-radius: 5px;
-  padding: 0 10px 0 5px;
-  height: 17px;
-  font-size: .65em;
-  margin: 15px 10px 10px 10px;
+  padding: 1px 7px 0 4px;
+  height: 19px;
+  font-size: .74em;
+  margin: 15px 16px 10px 10px;
 }
 
 .contact-widget-list-container {
@@ -72,7 +74,7 @@
 
 .contact-widget-list-container > ul > li {
   background-color: #1a1a1a;
-  height: 40px;
+  height: 2.52em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,31 +87,35 @@
 
 .contact-widget-list-container > ul > li > span:first-child {
   width: 5%;
-  margin: auto auto auto 10px;
+  font-family: 'Roboto', sans-serif;
+  margin: auto auto auto 16px;
   text-align: start;
-  font-size: 1.6em;
-  color: #29fd39;
+  font-size: 2.2em;
+  color: #00fd1c;
 }
 
 .contact-widget-list-container > ul > li > span:nth-child(2) {
   width: 25%;
-  margin: auto auto auto 10px;
+  margin: 12px auto auto 13px;
   text-align: start;
-  font-size: small;
+  font-size: .83em;
+  font-weight: 400;
 }
 
 .contact-widget-list-container > ul > li > span:nth-child(3) {
   border-right: 2px #171717 solid;
+  margin: 0 8px 0 12px;
 }
 
 .contact-widget-list-container > ul > li > span:last-child {
   width: 70%;
-  font-size: 13.5px;
   color: #474747;
   margin: auto;
   text-align: start;
   margin-left: 10px;
-  font-size: small;
+  font-weight: 500;
+  font-size: .81em;
+  overflow: hidden;
 }
 
 .contact-widget-list-container > ul > li:nth-child(odd) {
@@ -117,15 +123,15 @@
 }
 
 .contact-widget-list-container > ul > li:nth-child(5) > span:first-child {
-  color: #fc0d1b;
+  color: red;
 }
 
 .contact-widget-list-container > ul > li:nth-child(6) > span:first-child {
-  color: #c3bf30;
+  color: #bbb917;
 }
 
 .contact-widget-list-container > ul > li:nth-child(8) > span:first-child {
-  color: #fffa37;
+  color: #fffb00;
 }
 
 .contact-widget-list-container > ul > li:hover {
@@ -137,11 +143,31 @@
   border: none;
 }
 
+.contact-widget-list-container > ul > li:hover > span:nth-child(2) {
+  width: 17%;
+  margin-top: 12px;
+}
+
 .contact-widget-list-container > ul > li:hover > span:last-child {
-  width: 70%;
+  width: 78%;
   background-color: #484848;
   z-index: 1;
-  padding: 10px 10px 10px 20px;
+  padding: 10px 10px 15px 24px;
   color: white;
+  font-size: .84em;
+  font-weight: 200;
+}
+
+.email-hypertext {
+  color: #15c9d1;
+  margin-bottom: 12px;
+  display: inline-block;
+  padding-bottom: 1px;
+  border-bottom: 0.1em #15c9d1 solid;
+  min-width: 10px;
+}
+
+.email-hypertext:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

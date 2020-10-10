@@ -1,22 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&display=swap');
-// Chivo font import
-
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600&display=swap');
+// Work sans
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+// Roboto for dot
 
 * {
   margin: 0;
   padding: 0;
-  font-family: chivo;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   box-sizing: border-box;
 }
 
 // header element
 $header-background: linear-gradient(rgb(62, 62, 62), rgb(37, 37, 37));
-$header-height: 55px;
+$header-height: 53px;
 
 // footer element
 $footer-background: rgb(32, 32, 32);
-$footer-height: 48px;
+$footer-height: 3.05em;
 //borders
 $border-list: 2px rgb(19, 19, 19) solid;
 $border-list-side: 2px rgb(23, 23, 23) solid;
@@ -24,14 +25,14 @@ $border-radius: 13px;
 //list general styling
 $odd-list-color: rgb(33, 33, 33);
 $even-list-color: rgb(26, 26, 26);
-$list-item-height: 40px;
+$list-item-height: 2.52em;
 $hover-list-color: rgb(72, 72, 72);
 $email-phone-coloring:  rgb(71, 71, 71);
 // dot coloring
-$green-dot: rgb(41, 253, 57);
-$red-dot: rgb(252, 13, 27);
-$yellow-dot: rgb(255, 250, 55);
-$gold-dot: rgb(195, 191, 48);;
+$green-dot: rgb(0, 253, 28);
+$red-dot: rgb(255, 0, 0);
+$yellow-dot: rgb(255, 251, 0);
+$gold-dot: rgb(187, 185, 23);
 
 .contact-widget {
   //coloring
@@ -40,28 +41,30 @@ $gold-dot: rgb(195, 191, 48);;
   //flex
   display: flex;
   flex-direction: column;
-  //heigth-width
-  width: 300px;
+  //height-width
+  width: 299px;
   min-height:200px;
   //margin
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
   //border
-  border: 2px solid;
   background-image: linear-gradient(rgb(76,76,76), rgb(37,37,37));
+  padding: .125em;
   border-radius: 15px;
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+
+  // shadow
+  box-shadow: 0 5px 6px -2px rgb(128, 127, 127);
   //main header component
   & > div:first-child {
     background-image: $header-background;
     border-radius: $border-radius $border-radius 0 0;
     height: $header-height;
-    padding: 18px 10px 10px 20px;
+    padding: 19px 10px 10px 19px;
     display: flex;
-    font-weight: 590;
+    font-weight: 500;
     justify-content: start;
+    font-size: 1.04em;
   }
 
   //main footer component
@@ -73,12 +76,13 @@ $gold-dot: rgb(195, 191, 48);;
     
     display: flex;
     justify-content: flex-end;
+    // Selection for email or Number
     & > select {
       border-radius: 5px;
-      padding: 0 10px 0 5px;
-      height: 17px;
-      font-size: .65em;
-      margin: 15px 10px 10px 10px;
+      padding: 1px 7px 0 4px;
+      height: 19px;
+      font-size: .74em;
+      margin: 15px 16px 10px 10px;
     }
   }
 }
@@ -93,34 +97,38 @@ $gold-dot: rgb(195, 191, 48);;
         display: flex;
         flex-direction: row;
         border-bottom:$border-list;
+        // sets first span with •
         & > span:first-child{
           width: 5%;
-          margin: auto auto auto 10px;
+          font-family: 'Roboto', sans-serif;
+          margin: auto auto auto 16px;
           text-align: start;
-          font-size: 1.6em;
+          font-size: 2.2em;
           color: $green-dot;
 
         }
-        // sets first span with •
         & > span:nth-child(2){
           width: 25%;
-          margin: auto auto auto 10px;
+          margin: 12px auto auto 13px;
           text-align: start;
-          font-size: small;
+          font-size: .83em;
+          font-weight: 400;
         }
         // invisible span for border
         & > span:nth-child(3){
           border-right:$border-list-side;
+          margin: 0 8px 0 12px;
         }
         // for phone/email span
         & > span:last-child {
           width: 70%;
-          font-size: 13.5px;
           color: $email-phone-coloring;
           margin: auto;
           text-align: start;
           margin-left: 10px;
-          font-size: small;
+          font-weight: 500;
+          font-size: .81em;
+          overflow: hidden;
         }
       }
 
@@ -147,13 +155,31 @@ $gold-dot: rgb(195, 191, 48);;
         & > span {
           border: none;
         }
+        & > span:nth-child(2) {
+          width: 17%;
+          margin-top: 12px;
+        }
         & > span:last-child {
-          width: 70%;
+          width: 78%;
           background-color: $hover-list-color;
           z-index: 1;
-          padding: 10px 10px 10px 20px;
+          padding: 10px 10px 15px 24px;
           color: white;
+          font-size: .84em;
+          font-weight: 200;
         }
       }
 
+}
+
+.email-hypertext {
+  color: rgb(21, 201, 209); 
+  margin-bottom:12px;
+  display: inline-block;
+  padding-bottom: 1px;
+  border-bottom: .10em rgb(21, 201, 209) solid;
+  min-width: 10px;
+  &:hover {
+    cursor: pointer;
+  }
 }
